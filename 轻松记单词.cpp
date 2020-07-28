@@ -15,6 +15,8 @@
 						   解决出现空选项空问题的bug，添加查找单词功能，菜单退出功能；
 						
 第三次修改（2020年7月16日）：增加当日复习测试功能，错误三次单词自动加入词库
+
+第三次修改(2020年7月28日)：词库查看格式化对齐
 */
 #include<iostream>
 #include<algorithm>
@@ -451,14 +453,15 @@ int lookwordlist(){
 
 	FILE *fp = fopen("词库.txt","r");
 	//int line=wordnumber;
+	printf("                            《词库》\n\n"); 
 	for(int i=0;i<English.size();i++){
 			string A,B;
 			char a[100],b[100];
 			fscanf(fp,"%s",a);
 			fscanf(fp,"%s",b);
-			printf("%s %s\n",a,b);
+			printf("                    %-20s%-20s\n",a,b);
 	}
-	printf(" \n总共有%d个词汇！\n\n",English.size());
+	printf("\n                    总共有%d个词汇！\n\n",English.size());
 	printf("\n\n<回车键返回菜单>");
 	getchar();
 	getchar();

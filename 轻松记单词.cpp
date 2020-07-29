@@ -17,6 +17,8 @@
 第三次修改（2020年7月16日）：增加当日复习测试功能，错误三次单词自动加入词库
 
 第三次修改(2020年7月28日)：词库查看格式化对齐
+
+第四次修改（2020年7月29日）：修复词库查看补不全bug
 */
 #include<iostream>
 #include<algorithm>
@@ -446,22 +448,22 @@ void readfile(){
 			words[wordnumber++].wchinese=b;
 	}
 	fclose(fp);
-} 
+}
 //查看词库
 int lookwordlist(){
 	system("cls");
 
 	FILE *fp = fopen("词库.txt","r");
-	//int line=wordnumber;
+	int line=fileline();
 	printf("                            《词库》\n\n"); 
-	for(int i=0;i<English.size();i++){
+	for(int i=0;i<line;i++){
 			string A,B;
 			char a[100],b[100];
 			fscanf(fp,"%s",a);
 			fscanf(fp,"%s",b);
 			printf("                    %-20s%-20s\n",a,b);
 	}
-	printf("\n                    总共有%d个词汇！\n\n",English.size());
+	printf("\n                    总共有%d个词汇！\n\n",line);
 	printf("\n\n<回车键返回菜单>");
 	getchar();
 	getchar();
